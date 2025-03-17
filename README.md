@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+# 📌 React + TypeScript + Vite + React Router + Marvel API + TanStack Query + Axios + Context API + Redux Toolkit + Zustand
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛒 Mini Ecommerce com Marvel API
 
-Currently, two official plugins are available:
+Este projeto foi desenvolvido com o objetivo de aprofundar os conhecimentos em **state management** utilizando diferentes abordagens. Para isso, foi criado um **mini ecommerce** que consome a **Marvel API**, permitindo a listagem de personagens, HQs e outros conteúdos do universo Marvel.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 O que você vai encontrar neste projeto?
 
-## Expanding the ESLint configuration
+✅ **React + TypeScript** para um código mais seguro e escalável.  
+✅ **Vite** para um ambiente de desenvolvimento rápido e eficiente.  
+✅ **React Router** para navegação entre páginas de forma dinâmica e otimizada.  
+✅ **TanStack Query + Axios** para o gerenciamento e cache de requisições à API.  
+✅ **Context API, Redux Toolkit e Zustand** para explorar diferentes formas de gerenciamento de estado.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🌿 Branches disponíveis
 
-- Configure the top-level `parserOptions` property like this:
+Este repositório conta com **três branches**, cada uma implementando um método diferente de gerenciamento de estado:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+-   `context-api` → Implementação utilizando **Context API**.
+-   `redux-toolkit` → Implementação utilizando **Redux Toolkit**.
+-   `zustand` → Implementação utilizando **Zustand**.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+O projeto também utiliza o **React Router** para permitir uma experiência de navegação fluida entre as diferentes páginas do mini ecommerce.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Este projeto é ideal para quem deseja comparar e entender os prós e contras de cada solução de state management dentro do ecossistema React. 🚀
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Sinta-se à vontade para explorar, contribuir e aprimorar o código! 😃
+
+🔗 **Marvel API** → [developer.marvel.com](https://developer.marvel.com/)

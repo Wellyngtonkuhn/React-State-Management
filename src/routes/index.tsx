@@ -1,25 +1,15 @@
 import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import DashboadLayout from "../layout/DashboardLayout";
-import Perfil from "../components/Dasboard/Perfil";
-import Settings from "../components/Dasboard/Settings";
-import Payments from "../components/Dasboard/Payments";
-import NotFound from "../pages/NotFound";
-
-const Home = lazy(() => import("../pages/home"));
-const About = lazy(() => import("../pages/about"));
+const Products = lazy(() => import("../pages/products"));
+const ProductDetail = lazy(() => import("../pages/productdetail"));
+const NotFound = lazy(() => import("../pages/notFound"));
 
 export default function AppRoutes() {
 	return (
 		<Routes>
-			<Route index path="/" element={<Home />} />
-			<Route path="about" element={<About />} />
-			<Route path="dashboard" element={<DashboadLayout />}>
-				<Route path="perfil" element={<Perfil />} />
-				<Route path="settings" element={<Settings />} />
-				<Route path="payments" element={<Payments />} />
-			</Route>
+			<Route index path="/" element={<Products />} />
+			<Route path="product/:id" element={<ProductDetail />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
 	);
