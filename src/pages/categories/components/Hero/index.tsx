@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import { ComicsResult, CreatorsType } from "../../../../types";
 
 export default function Hero({ heroComic }: { heroComic?: ComicsResult }) {
-	if (!heroComic) return <p>Herói Sendo carregado...</p>;
-	const { id, creators, title, thumbnail, prices, description, format } = heroComic!;
+	if (!heroComic) return;
+	const { id, creators, title, thumbnail, prices, description, format } = heroComic;
 
 	const handleImageUrl = (path: string, extentiom: string): string => {
 		return `${path}.${extentiom}`;
 	};
 
-	const handleCreator = ({ items }: CreatorsType): string => {
+	const handleListCreators = ({ items }: CreatorsType): string => {
 		return items
 			.map((creator, index) =>
 				index === items.length - 1 ? `${creator.name}.` : `${creator.name},`
@@ -17,14 +17,12 @@ export default function Hero({ heroComic }: { heroComic?: ComicsResult }) {
 			.join(" ");
 	};
 
-	console.log({ heroComic });
-
 	return (
 		<section className="w-full px-4">
-			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-2 items-center">
+			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-10 items-center">
 				<div>
 					<img
-						className="w-full h-60 object-cover md:object-contain md:min-h-screen "
+						className="w-full h-60 object-cover md:min-h-screen"
 						src={handleImageUrl(
 							thumbnail?.path as string,
 							thumbnail?.extension as string
@@ -48,7 +46,9 @@ export default function Hero({ heroComic }: { heroComic?: ComicsResult }) {
 					{creators && creators.items.length > 0 && (
 						<p className="text-sm text-gray-700 font-medium mb-4">
 							Criadores:{" "}
-							<span className="font-normal">{handleCreator(creators)}</span>
+							<span className="font-normal">
+								{handleListCreators(creators)}
+							</span>
 						</p>
 					)}
 
