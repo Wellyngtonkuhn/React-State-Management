@@ -3,6 +3,7 @@ import api from "../../../services/api";
 import Hero from "../components/Hero";
 import { ComicsResult, ComicsType } from "../../../types";
 import HeroSkeleton from "../components/Hero/HeroSkeleton";
+import ComicsList from "./components/ComicsList";
 
 export default function ComicsPage() {
 	const { data: comics, isLoading } = useQuery<ComicsType>({
@@ -27,12 +28,14 @@ export default function ComicsPage() {
 
 		return filterResults[randomNumber] || [];
 	};
-
+	console.log(comics?.data?.results);
 	return (
 		<>
 			{/* Hero Skeleton */}
 			{isLoading && <HeroSkeleton />}
 			<Hero heroComic={handleSetHeroComic(comics?.data?.results)} />
+
+			<ComicsList results={comics?.data?.results} />
 		</>
 	);
 }

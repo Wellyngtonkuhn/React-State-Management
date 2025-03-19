@@ -57,7 +57,7 @@ export default function Hero({ heroComic }: { heroComic?: ComicsResult }) {
 					)}
 
 					<Link
-						className="text-base text-white font-semibold bg-black px-6 py-2 rounded shadow hover:text-black hover:bg-white transition delay-75 ease-in-out md:text-lg"
+						className="text-base text-white font-semibold bg-black px-6 py-2 rounded hover:bg-[#C00207] transition-colors md:text-lg"
 						to={`product/${id}`}
 					>
 						Comprar Agora

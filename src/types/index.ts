@@ -1,10 +1,15 @@
+export enum PriceEnum {
+	DIGITAL_PURCHASE_PRICE = "digitalPurchasePrice",
+	PRINT_PRICE = "printPrice",
+}
+
 export type CreatorsType = {
 	items: Array<{ name: string; resourceURI: string; role: string }>;
 };
 
 export type PricesType = {
 	price: number;
-	type: string;
+	type: PriceEnum;
 };
 export type ComicsResult = {
 	id: number;
