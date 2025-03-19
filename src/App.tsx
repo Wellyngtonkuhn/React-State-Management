@@ -10,7 +10,9 @@ export default function App() {
 		<BrowserRouter>
 			<Header />
 			<QueryClientProvider client={queryClient}>
-				<AppRoutes />
+				<main>
+					<AppRoutes />
+				</main>
 			</QueryClientProvider>
 			<Footer />
 		</BrowserRouter>
