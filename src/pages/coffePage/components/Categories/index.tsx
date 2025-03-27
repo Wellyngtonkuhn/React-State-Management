@@ -10,7 +10,7 @@ export default function Categories({ category: activeCategory }: CategoryType) {
 		return activeCategory === category;
 	};
 	return (
-		<ScrollArea className="w-full rounded-md border">
+		<ScrollArea className="max-w-6xl mx-auto rounded-md border">
 			<div className="p-4">
 				<h3 className="mb-4 text-sm font-medium leading-none sm:text-base">
 					Categories
