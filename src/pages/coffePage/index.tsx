@@ -24,7 +24,7 @@ export default function CoffePage() {
 				<Categories category={category!} />
 			</section>
 			<section>
-				<CoffeeList results={coffee} />
+				<CoffeeList results={coffee} category={category!} />
 			</section>
 		</>
 	);
