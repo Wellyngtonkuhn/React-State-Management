@@ -6,6 +6,10 @@ export type CoffeType = {
 	image: string;
 	price: number;
 };
+export type CategoryType = {
+	category: CategoriesEnum;
+};
+
 export enum CategoriesEnum {
 	HOT = "hot",
 	ICED = "iced",

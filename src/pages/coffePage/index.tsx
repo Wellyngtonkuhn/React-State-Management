@@ -1,13 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import CoffeeList from "./components/CoffeeList";
-import { CoffeType } from "@/types";
+import { CategoryType, CoffeType } from "@/types";
 import api from "@/services/api";
 import Hero from "./components/Hero";
+import Categories from "./components/Categories";
+import { useParams } from "react-router-dom";
 
 export default function CoffePage() {
+	const { category } = useParams<CategoryType>();
+
 	const { data: coffee, isLoading } = useQuery<CoffeType[]>({
-		queryKey: ["hot"],
-		queryFn: () => api.get("hot").then((res) => res.data),
+		queryKey: ["coffee", category],
+		queryFn: () => api.get(category as string).then((res) => res.data),
 	});
 
 	return (
@@ -16,7 +20,12 @@ export default function CoffePage() {
 			{/* {isLoading && <HeroSkeleton />}
 			// <Hero /> */}
 			<Hero />
-			<CoffeeList results={coffee} />
+			<section className="mt-24 mb-4 px-4 sm:my-10">
+				<Categories category={category!} />
+			</section>
+			<section>
+				<CoffeeList results={coffee} />
+			</section>
 		</>
 	);
 }
