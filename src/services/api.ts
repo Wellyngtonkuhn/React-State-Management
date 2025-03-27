@@ -1,10 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-	baseURL: `http://gateway.marvel.com/v1/public/`,
-	params: {
-		apikey: "28af6483b44ec1d0ba8ed1332f6b0312",
-	},
+	baseURL: "https://api.sampleapis.com/coffee/",
 	headers: {
 		"Content-Type": "application/json",
 	},
