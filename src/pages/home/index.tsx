@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import CoffeeImage from "../../assets/coffee.png";
-import { CategoriesEnum } from "../../types";
+import { CategoriesEnum } from "@/types";
 
 export default function Home() {
 	return (

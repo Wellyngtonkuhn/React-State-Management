@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import api from "../../services/api";
 import CoffeeList from "./components/CoffeeList";
-import { CoffeType } from "../../types";
+import { CoffeType } from "@/types";
+import api from "@/services/api";
+import Hero from "./components/Hero";
 
 export default function CoffePage() {
 	const { data: coffee, isLoading } = useQuery<CoffeType[]>({
@@ -13,8 +14,8 @@ export default function CoffePage() {
 		<>
 			{/* Hero Skeleton */}
 			{/* {isLoading && <HeroSkeleton />}
-			<Hero /> */}
-
+			// <Hero /> */}
+			<Hero />
 			<CoffeeList results={coffee} />
 		</>
 	);
