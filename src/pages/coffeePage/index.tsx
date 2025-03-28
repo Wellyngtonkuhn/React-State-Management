@@ -18,12 +18,13 @@ export default function CoffePage() {
 	return (
 		<>
 			<Hero />
-			<section className="mt-24 mb-4 px-4 sm:my-10">
+			<section className="w-full bg-light px-4 pt-24">
 				<Categories category={category!} />
-			</section>
-			<section className="mb-4">
-				{isLoading && <CoffeListSkeleton />}
-				<CoffeeList results={coffee} category={category!} />
+
+				<section className="mt-4">
+					{isLoading && <CoffeListSkeleton />}
+					<CoffeeList results={coffee} category={category!} />
+				</section>
 			</section>
 		</>
 	);
