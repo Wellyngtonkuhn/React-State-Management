@@ -1,7 +1,7 @@
 import api from "@/services/api";
 import { CategoryType, CoffeType } from "@/types";
 import { useQuery } from "@tanstack/react-query";
-import { ChevronLeft, Heart } from "lucide-react";
+import { ChevronLeft, Heart, MinusCircle, PlusCircle } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import DeliveryIcon from "@/assets/icons/delivery.png";
@@ -59,42 +59,76 @@ export default function CoffeeDetail() {
 							</div>
 
 							<div>
-								<div className="flex justify-between mt-4 px-4">
+								<div className="flex justify-between items-center mt-4 px-4">
 									<div>
-										<h1 className="text-xl text-gray-normal font-semibold mb-1 lg:text-4xl">
-											{coffeeDetail?.title}
-										</h1>
-										<h2 className="text-xs text-lighter mb-3">
-											{category}
-										</h2>
-										<p className="space-x-1">
-											<span className="text-xl text-yellow-400">
-												★
-											</span>
-											<span className="font-semibold text-gray-normal">
-												4.8
-											</span>
-											<span className="text-xs text-lighter">
-												(280)
-											</span>
-										</p>
+										<div>
+											<h1 className="text-xl text-gray-normal font-semibold mb-1 lg:text-4xl">
+												{coffeeDetail?.title}
+											</h1>
+											<h2 className="text-xs text-lighter mb-3">
+												{category}
+											</h2>
+											<p className="space-x-1">
+												<span className="text-xl text-yellow-400">
+													★
+												</span>
+												<span className="font-semibold text-gray-normal">
+													4.8
+												</span>
+												<span className="text-xs text-lighter">
+													(280)
+												</span>
+											</p>
+										</div>
+										<div className="hidden md:flex items-center gap-x-4 ">
+											<Button
+												variant={"link"}
+												className="hover:cursor-pointer"
+											>
+												<MinusCircle />
+											</Button>
+											<p>1</p>
+											<Button
+												variant={"link"}
+												className="hover:cursor-pointer"
+											>
+												<PlusCircle />
+											</Button>
+										</div>
 									</div>
-									<div className="flex items-center gap-3">
-										<img
-											src={DeliveryIcon}
-											alt="Delivery Icon"
-											className="w-9 h-9"
-										/>
-										<img
-											src={BeanIcon}
-											alt="Delivery Icon"
-											className="w-9 h-9"
-										/>
-										<img
-											src={MilkIcon}
-											alt="Delivery Icon"
-											className="w-9 h-9"
-										/>
+									<div className="flex flex-col items-center gap-3">
+										<div className="flex items-center gap-x-4 md:hidden">
+											<Button
+												variant={"link"}
+												className="hover:cursor-pointer"
+											>
+												<MinusCircle />
+											</Button>
+											<p>1</p>
+											<Button
+												variant={"link"}
+												className="hover:cursor-pointer"
+											>
+												<PlusCircle />
+											</Button>
+										</div>
+										<div className="flex items-center gap-3">
+											<img
+												src={DeliveryIcon}
+												alt="Delivery Icon"
+												className="w-9 h-9"
+											/>
+											<img
+												src={BeanIcon}
+												alt="Delivery Icon"
+												className="w-9 h-9"
+											/>
+											<img
+												src={MilkIcon}
+												alt="Delivery Icon"
+												className="w-9 h-9"
+											/>
+										</div>
 									</div>
 								</div>
 
