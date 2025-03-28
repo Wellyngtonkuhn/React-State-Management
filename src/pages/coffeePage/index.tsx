@@ -18,7 +18,7 @@ export default function CoffePage() {
 	return (
 		<>
 			<Hero />
-			<section className="w-full bg-light px-4 pt-24">
+			<section className="w-full bg-light px-4 pb-4 pt-24 sm:pt-4">
 				<Categories category={category!} />
 
 				<section className="mt-4">

@@ -71,8 +71,11 @@ export default function CoffeeList({ results, category }: Props) {
 										currency: "USD",
 									}).format(coffee?.price)}
 								</span>
-								<Button variant={"outline"} className="bg-brown">
-									<Plus className="text-white" />
+								<Button
+									variant={"outline"}
+									className="bg-brown border-brown text-white font-semibold hover:cursor-pointer"
+								>
+									<Plus />
 								</Button>
 							</CardFooter>
 						</Card>

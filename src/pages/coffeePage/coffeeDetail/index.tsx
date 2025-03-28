@@ -33,13 +33,17 @@ export default function CoffeeDetail() {
 		<section className="w-full bg-light relative">
 			<div className="w-full h-11 bg-white px-4">
 				<div className="max-w-6xl mx-auto flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white pl-2 pr-3">
-					<Button onClick={handleBackPage} variant={"link"} className="w-0">
+					<Button
+						onClick={handleBackPage}
+						variant={"link"}
+						className="w-0 hover:cursor-pointer"
+					>
 						<ChevronLeft className="text-gray-normal" />
 					</Button>
 
 					<p className="text-gray-normal font-semibold">Detail</p>
 
-					<Heart className="w-4 h-4 text-gray-normal" />
+					<Heart className="w-4 h-4 text-gray-normal hover:cursor-pointer" />
 				</div>
 			</div>
 
@@ -132,7 +136,7 @@ export default function CoffeeDetail() {
 									</div>
 								</div>
 
-								<Separator className="max-w-10/12 mx-auto my-4 " />
+								<Separator className="max-w-10/12 mx-auto my-4 md:max-w-full " />
 
 								<div className="space-y-2 px-4">
 									<h2 className="text-xl text-gray-normal font-semibold">
