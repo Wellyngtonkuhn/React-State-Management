@@ -34,7 +34,7 @@ export default function CoffeeDetail() {
 			<div className="w-full h-11 bg-white px-4">
 				<div className="max-w-6xl mx-auto flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-white pl-2 pr-3">
 					<Button onClick={handleBackPage} variant={"link"} className="w-0">
-						<ChevronLeft className=" text-gray-normal" />
+						<ChevronLeft className="text-gray-normal" />
 					</Button>
 
 					<p className="text-gray-normal font-semibold">Detail</p>
@@ -119,21 +119,21 @@ export default function CoffeeDetail() {
 											data-active={false}
 											className="data-[active=true]:bg-salmon data-[active=true]:border-brown data-[active=true]:text-brown hover:cursor-pointer"
 										>
-											S
+											S (250)
 										</Button>
 										<Button
 											variant={"outline"}
 											data-active={true}
 											className="data-[active=true]:bg-salmon data-[active=true]:border-brown data-[active=true]:text-brown hover:cursor-pointer"
 										>
-											M
+											M (350)
 										</Button>
 										<Button
 											variant={"outline"}
 											data-active={false}
 											className="data-[active=true]:bg-salmon data-[active=true]:border-brown data-[active=true]:text-brown hover:cursor-pointer"
 										>
-											L
+											L (450)
 										</Button>
 									</div>
 								</div>
