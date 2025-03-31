@@ -22,7 +22,7 @@ export default function CoffePage() {
 			<section className="w-full bg-light px-4 pb-4 pt-24 sm:pt-4">
 				<Categories category={category!} />
 
-				<section className="mt-4">
+				<section className="mt-4 mb-24">
 					{isLoading && <CoffeeListSkeleton />}
 					<CoffeeList results={coffee} category={category!} />
 				</section>
