@@ -5,7 +5,8 @@ import api from "@/services/api";
 import Hero from "./components/Hero";
 import Categories from "./components/Categories";
 import { useParams } from "react-router-dom";
-import CoffeListSkeleton from "./components/CoffeListSkeleton";
+import CoffeeListSkeleton from "./components/CoffeeListSkeleton";
+import BottomTabBar from "@/components/BottomTabBar";
 
 export default function CoffePage() {
 	const { category } = useParams<CategoryType>();
@@ -22,10 +23,12 @@ export default function CoffePage() {
 				<Categories category={category!} />
 
 				<section className="mt-4">
-					{isLoading && <CoffeListSkeleton />}
+					{isLoading && <CoffeeListSkeleton />}
 					<CoffeeList results={coffee} category={category!} />
 				</section>
 			</section>
+
+			<BottomTabBar />
 		</>
 	);
 }

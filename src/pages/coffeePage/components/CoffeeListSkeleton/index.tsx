@@ -1,6 +1,6 @@
 import Skeleton from "@/components/Skeleton";
 
-export default function CoffeListSkeleton() {
+export default function CoffeeistSkeleton() {
 	return (
 		<div className="max-w-6xl mx-auto grid grid-cols-2 gap-3.5 px-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
 			{Array.from({ length: 5 }).map((_, index) => (
