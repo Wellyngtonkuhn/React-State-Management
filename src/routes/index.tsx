@@ -5,6 +5,7 @@ const Home = lazy(() => import("@/pages/home"));
 const CoffeePage = lazy(() => import("@/pages/coffeePage"));
 const CoffeeDetail = lazy(() => import("@/pages/coffeePage/coffeeDetail"));
 const Orderpage = lazy(() => import("@/pages/order"));
+const ThankYouPage = lazy(() => import("@/pages/thankYouPage"));
 const NotFound = lazy(() => import("@/pages/notFound"));
 
 export default function AppRoutes() {
@@ -15,6 +16,10 @@ export default function AppRoutes() {
 			<Route path="/coffee/:category" element={<CoffeePage />} />
 			<Route path="/coffee/:category/:id" element={<CoffeeDetail />} />
 			<Route path="/coffee/order" element={<Orderpage />} />
+			<Route
+				path="/coffee/order/:orderNumber/thank-you"
+				element={<ThankYouPage />}
+			/>
 
 			<Route path="*" element={<NotFound />} />
 		</Routes>
