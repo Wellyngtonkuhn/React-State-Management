@@ -1,5 +1,5 @@
 import api from "@/services/api";
-import { CategoryType, CoffeType } from "@/types";
+import { CategoryType, CoffeeType } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft, Heart, MinusCircle, PlusCircle } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -12,21 +12,36 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import CoffeDetailSkeleton from "./components/CoffeeDetailSkeleton";
 import Skeleton from "@/components/Skeleton";
+import { useCart } from "@/context/CartProvider/useCart";
+import { useState } from "react";
 
 type CoffeDetailsParams = CategoryType & {
 	id: string;
 };
 export default function CoffeeDetail() {
+	const [coffeeQuantity, setCoffeeQuantity] = useState<number>(1);
+	const { handleAddToCart } = useCart();
+
 	const navigate = useNavigate();
 	const { category, id } = useParams<CoffeDetailsParams>();
 
-	const { data: coffeeDetail, isLoading } = useQuery<CoffeType>({
+	const { data: coffeeDetail, isLoading } = useQuery<CoffeeType>({
 		queryKey: [category, id],
 		queryFn: () => api.get(`${category}/${id}`).then((res) => res.data),
 	});
 
 	const handleBackPage = () => {
 		return navigate(-1);
+	};
+
+	const handleIncreaseCoffeeQuantity = () => {
+		setCoffeeQuantity((prev) => prev + 1);
+		return;
+	};
+
+	const handleDecreaseCoffeeQuantity = () => {
+		setCoffeeQuantity((prev) => (prev > 1 ? prev - 1 : prev));
+		return;
 	};
 
 	return (
@@ -88,13 +103,15 @@ export default function CoffeeDetail() {
 											<Button
 												variant={"link"}
 												className="hover:cursor-pointer"
+												onClick={handleDecreaseCoffeeQuantity}
 											>
 												<MinusCircle />
 											</Button>
-											<p>1</p>
+											<p>{coffeeQuantity}</p>
 											<Button
 												variant={"link"}
 												className="hover:cursor-pointer"
+												onClick={handleIncreaseCoffeeQuantity}
 											>
 												<PlusCircle />
 											</Button>
@@ -105,13 +122,15 @@ export default function CoffeeDetail() {
 											<Button
 												variant={"link"}
 												className="hover:cursor-pointer"
+												onClick={handleDecreaseCoffeeQuantity}
 											>
 												<MinusCircle />
 											</Button>
-											<p>1</p>
+											<p>{coffeeQuantity}</p>
 											<Button
 												variant={"link"}
 												className="hover:cursor-pointer"
+												onClick={handleIncreaseCoffeeQuantity}
 											>
 												<PlusCircle />
 											</Button>
@@ -189,7 +208,10 @@ export default function CoffeeDetail() {
 							{isLoading ? (
 								<Skeleton className="w-12 h-7 rounded-lg" />
 							) : (
-								"$ 4.53"
+								new Intl.NumberFormat("en-US", {
+									style: "currency",
+									currency: "USD",
+								}).format(coffeeDetail?.price as number)
 							)}
 						</p>
 					</div>
@@ -197,6 +219,7 @@ export default function CoffeeDetail() {
 						<Button
 							variant={"outline"}
 							className="w-full bg-brown border-brown text-white font-semibold hover:cursor-pointer"
+							onClick={() => handleAddToCart(coffeeDetail!, coffeeQuantity)}
 						>
 							Buy Now
 						</Button>

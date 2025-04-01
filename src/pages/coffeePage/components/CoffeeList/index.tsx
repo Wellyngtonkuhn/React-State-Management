@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CategoriesEnum, CoffeType } from "../../../../types";
+import { CategoriesEnum, CoffeeType } from "../../../../types";
 import {
 	Card,
 	CardContent,
@@ -10,13 +10,16 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import { useCart } from "@/context/CartProvider/useCart";
 
 type Props = {
-	results: Array<CoffeType> | undefined;
+	results: Array<CoffeeType> | undefined;
 	category: CategoriesEnum;
 };
 
 export default function CoffeeList({ results, category }: Props) {
+	const { handleAddToCart } = useCart();
+
 	const handleGeneretaStars = () => {
 		const stars = Math.random() * 4 + 1;
 
@@ -69,11 +72,12 @@ export default function CoffeeList({ results, category }: Props) {
 									{new Intl.NumberFormat("en-US", {
 										style: "currency",
 										currency: "USD",
-									}).format(coffee?.price)}
+									}).format(coffee?.price as number)}
 								</span>
 								<Button
 									variant={"outline"}
 									className="bg-brown border-brown text-white font-semibold hover:cursor-pointer"
+									onClick={() => handleAddToCart(coffee, 1)}
 								>
 									<Plus />
 								</Button>
