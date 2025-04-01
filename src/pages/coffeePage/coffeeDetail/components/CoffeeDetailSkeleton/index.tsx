@@ -1,7 +1,7 @@
 import Skeleton from "@/components/Skeleton";
 import { Separator } from "@/components/ui/separator";
 
-export default function CoffeDetailSkeleton() {
+export default function CoffeeDetailSkeleton() {
 	return (
 		<section className="w-full h-screen bg-light">
 			<div className="max-w-6xl mx-auto mt-3 pb-16 md:mt-12 md:pb-0 lg:mt-6">
